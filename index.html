@@ -14,8 +14,9 @@
     <style>
 
         /* =====================================================
-           BUENARROZ - IDENTIDAD VISUAL
-           ===================================================== */
+           BUENARROZ
+           IDENTIDAD VISUAL
+        ===================================================== */
 
         :root {
             --rojo: #F20D1B;
@@ -34,18 +35,18 @@
 
             --sombra: 0 12px 35px rgba(190, 30, 20, 0.12);
 
-            --radio: 20px;
+            --radio: 22px;
         }
 
 
         /* =====================================================
            RESET
-           ===================================================== */
+        ===================================================== */
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -53,14 +54,9 @@
         }
 
         body {
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
+            font-family: Arial, Helvetica, sans-serif;
             color: var(--negro);
             background: var(--crema);
-
             line-height: 1.6;
         }
 
@@ -81,17 +77,17 @@
 
         /* =====================================================
            CONTENEDOR
-           ===================================================== */
+        ===================================================== */
 
         .container {
             width: min(1180px, 92%);
-            margin: auto;
+            margin: 0 auto;
         }
 
 
         /* =====================================================
            HEADER
-           ===================================================== */
+        ===================================================== */
 
         header {
             position: sticky;
@@ -99,8 +95,7 @@
             z-index: 1000;
 
             background: rgba(255, 255, 255, 0.96);
-
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
 
             border-bottom: 1px solid rgba(242, 13, 27, 0.08);
         }
@@ -122,23 +117,14 @@
             display: flex;
             align-items: center;
 
-            gap: 12px;
-
-            font-size: 24px;
-            font-weight: 800;
-
-            color: var(--rojo);
+            flex-shrink: 0;
         }
 
         .logo img {
-            width: 58px;
-            height: 58px;
+            width: 175px;
+            height: auto;
 
             object-fit: contain;
-        }
-
-        .logo span {
-            color: var(--rojo);
         }
 
 
@@ -147,7 +133,6 @@
         nav {
             display: flex;
             align-items: center;
-
             gap: 30px;
         }
 
@@ -159,27 +144,28 @@
 
             color: var(--negro);
 
-            transition: 0.25s ease;
-        }
-
-        nav a:hover {
-            color: var(--rojo);
+            transition: color 0.25s ease;
         }
 
         nav a::after {
             content: "";
 
             position: absolute;
-
             left: 0;
             bottom: -7px;
 
             width: 0;
-            height: 2px;
+            height: 3px;
 
-            background: var(--naranja);
+            border-radius: 10px;
 
-            transition: 0.25s ease;
+            background: var(--rojo);
+
+            transition: width 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--rojo);
         }
 
         nav a:hover::after {
@@ -189,56 +175,56 @@
 
         /* BOTÓN HEADER */
 
-        .btn-header {
+        .header-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
 
             padding: 12px 20px;
 
-            border-radius: 50px;
+            border-radius: 999px;
 
             background: var(--rojo);
-
             color: white;
 
+            font-size: 14px;
             font-weight: 700;
 
-            transition: 0.25s ease;
+            transition: all 0.25s ease;
         }
 
-        .btn-header:hover {
-            background: var(--rojo-oscuro);
-
+        .header-button:hover {
+            background: var(--rojo-profundo);
             transform: translateY(-2px);
         }
 
 
         /* =====================================================
            HERO
-           ===================================================== */
+        ===================================================== */
 
         .hero {
-            min-height: 680px;
+            position: relative;
+
+            min-height: 690px;
 
             display: flex;
             align-items: center;
 
+            overflow: hidden;
+
             background:
                 radial-gradient(
-                    circle at 85% 30%,
-                    rgba(255, 170, 25, 0.35),
-                    transparent 30%
+                    circle at 80% 20%,
+                    rgba(255, 170, 25, 0.28),
+                    transparent 35%
                 ),
                 linear-gradient(
                     135deg,
-                    var(--crema) 0%,
-                    #fff 55%,
-                    var(--crema-oscura) 100%
+                    #FFF7EA 0%,
+                    #FFFFFF 55%,
+                    #FFE8C7 100%
                 );
-
-            position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
@@ -246,23 +232,42 @@
 
             position: absolute;
 
-            width: 420px;
-            height: 420px;
-
-            border-radius: 50%;
-
-            background: rgba(242, 13, 27, 0.07);
+            width: 520px;
+            height: 520px;
 
             right: -160px;
-            top: -100px;
+            top: -130px;
+
+            background: var(--naranja);
+
+            opacity: 0.08;
+
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            left: -150px;
+            bottom: -140px;
+
+            background: var(--rojo);
+
+            opacity: 0.06;
+
+            border-radius: 50%;
         }
 
         .hero-grid {
             position: relative;
-            z-index: 1;
+            z-index: 2;
 
             display: grid;
-
             grid-template-columns: 1.05fr 0.95fr;
 
             align-items: center;
@@ -276,202 +281,211 @@
 
         .eyebrow {
             display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
 
             padding: 8px 15px;
 
-            border-radius: 50px;
+            margin-bottom: 22px;
 
-            background: rgba(242, 13, 27, 0.09);
+            border-radius: 999px;
 
+            background: rgba(242, 13, 27, 0.08);
             color: var(--rojo);
 
             font-size: 13px;
             font-weight: 800;
 
             text-transform: uppercase;
-
             letter-spacing: 1px;
+        }
 
-            margin-bottom: 20px;
+        .eyebrow span {
+            width: 8px;
+            height: 8px;
+
+            background: var(--naranja);
+            border-radius: 50%;
         }
 
         .hero h1 {
-            font-size: clamp(42px, 6vw, 72px);
+            font-size: clamp(48px, 6vw, 78px);
+            line-height: 0.98;
 
-            line-height: 1.03;
+            letter-spacing: -3px;
 
             margin-bottom: 25px;
-
-            color: var(--negro);
         }
 
-        .hero h1 span {
+        .hero h1 strong {
             color: var(--rojo);
         }
 
-        .hero p {
+        .hero-description {
+            max-width: 570px;
+
             font-size: 19px;
-
-            max-width: 590px;
-
             color: var(--gris);
 
-            margin-bottom: 32px;
+            margin-bottom: 35px;
         }
 
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
 
-            gap: 15px;
+            gap: 14px;
         }
 
         .btn {
             display: inline-flex;
-
             align-items: center;
             justify-content: center;
 
-            padding: 15px 26px;
+            padding: 15px 25px;
 
-            border-radius: 50px;
+            border-radius: 999px;
 
+            font-size: 15px;
             font-weight: 800;
 
-            transition: 0.25s ease;
+            transition: all 0.25s ease;
         }
 
         .btn-primary {
             background: var(--rojo);
-
             color: white;
 
-            box-shadow: 0 10px 25px rgba(242, 13, 27, 0.22);
+            box-shadow: 0 10px 25px rgba(242, 13, 27, 0.2);
         }
 
         .btn-primary:hover {
-            background: var(--rojo-oscuro);
-
+            background: var(--rojo-profundo);
             transform: translateY(-3px);
         }
 
         .btn-secondary {
             background: white;
-
             color: var(--rojo);
 
-            border: 1px solid rgba(242, 13, 27, 0.2);
+            border: 2px solid rgba(242, 13, 27, 0.15);
         }
 
         .btn-secondary:hover {
             border-color: var(--rojo);
-
             transform: translateY(-3px);
         }
 
 
-        /* HERO LOGO */
+        /* HERO VISUAL */
 
         .hero-visual {
             display: flex;
-
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+
+            min-height: 480px;
         }
 
-        .logo-card {
-            width: min(450px, 90vw);
+        .rice-card {
+            position: relative;
 
-            aspect-ratio: 1 / 1;
+            width: min(450px, 100%);
+            min-height: 450px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             border-radius: 50%;
 
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
             background:
                 radial-gradient(
-                    circle at 35% 30%,
-                    var(--naranja-claro),
-                    var(--naranja) 45%,
-                    var(--rojo) 100%
+                    circle,
+                    #FFFFFF 0%,
+                    #FFF7EA 55%,
+                    #FFE8C7 100%
                 );
 
-            box-shadow:
-                0 30px 70px rgba(201, 0, 18, 0.25);
-
-            position: relative;
+            box-shadow: var(--sombra);
         }
 
-        .logo-card::after {
+        .rice-card::before {
             content: "";
 
             position: absolute;
 
-            inset: 20px;
-
-            border: 3px solid rgba(255,255,255,0.9);
+            width: 78%;
+            height: 78%;
 
             border-radius: 50%;
+
+            border: 2px dashed rgba(242, 13, 27, 0.15);
         }
 
-        .logo-card img {
-            width: 72%;
-
+        .rice-logo {
             position: relative;
-
             z-index: 2;
 
-            object-fit: contain;
+            width: 270px;
+
+            filter: drop-shadow(
+                0 18px 20px rgba(0,0,0,0.12)
+            );
         }
 
 
         /* =====================================================
-           SECCIONES
-           ===================================================== */
+           SECCIÓN GENERAL
+        ===================================================== */
 
         section {
             padding: 95px 0;
         }
 
-        .section-heading {
-            max-width: 700px;
+        .section-header {
+            max-width: 720px;
 
             margin: 0 auto 55px;
 
             text-align: center;
         }
 
-        .section-heading .eyebrow {
+        .section-label {
+            color: var(--rojo);
+
+            font-size: 13px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+
             margin-bottom: 12px;
         }
 
-        .section-heading h2 {
-            font-size: clamp(32px, 4vw, 48px);
+        .section-header h2 {
+            font-size: clamp(34px, 4vw, 52px);
+            line-height: 1.05;
 
-            line-height: 1.1;
-
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
-        .section-heading p {
+        .section-header p {
             color: var(--gris);
-
             font-size: 17px;
         }
 
 
         /* =====================================================
            PRODUCTOS
-           ===================================================== */
+        ===================================================== */
 
-        #productos {
+        .products {
             background: white;
         }
 
-        .products-grid {
+        .product-grid {
             display: grid;
 
             grid-template-columns:
@@ -481,15 +495,15 @@
         }
 
         .product-card {
-            padding: 32px;
-
-            border-radius: var(--radio);
+            overflow: hidden;
 
             background: var(--crema);
 
+            border-radius: var(--radio);
+
             border: 1px solid rgba(242, 13, 27, 0.08);
 
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .product-card:hover {
@@ -498,53 +512,75 @@
             box-shadow: var(--sombra);
         }
 
-        .product-icon {
-            width: 65px;
-            height: 65px;
-
-            border-radius: 18px;
+        .product-image {
+            min-height: 250px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             background:
                 linear-gradient(
-                    135deg,
-                    var(--rojo),
-                    var(--naranja)
+                    145deg,
+                    #FFF7EA,
+                    #FFE8C7
                 );
-
-            color: white;
-
-            font-size: 30px;
-
-            margin-bottom: 22px;
         }
 
-        .product-card h3 {
+        .product-image div {
+            width: 135px;
+            height: 170px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: white;
+
+            border-radius: 12px 12px 25px 25px;
+
+            box-shadow:
+                0 15px 25px rgba(0,0,0,0.12);
+
+            transform: rotate(-3deg);
+        }
+
+        .product-image img {
+            width: 100%;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
             font-size: 22px;
 
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .product-card p {
+        .product-content p {
             color: var(--gris);
 
-            margin-bottom: 20px;
+            font-size: 15px;
+
+            margin-bottom: 18px;
         }
 
         .product-link {
             color: var(--rojo);
 
             font-weight: 800;
+
+            font-size: 14px;
         }
 
 
         /* =====================================================
            NOSOTROS
-           ===================================================== */
+        ===================================================== */
 
         .about {
             background: var(--crema);
@@ -553,24 +589,23 @@
         .about-grid {
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 0.9fr 1.1fr;
 
             gap: 70px;
 
             align-items: center;
         }
 
-        .about-image {
-            min-height: 450px;
+        .about-visual {
+            position: relative;
+
+            min-height: 420px;
 
             border-radius: 30px;
 
+            overflow: hidden;
+
             background:
-                radial-gradient(
-                    circle at 25% 20%,
-                    var(--naranja-claro),
-                    transparent 35%
-                ),
                 linear-gradient(
                     145deg,
                     var(--rojo),
@@ -578,31 +613,46 @@
                 );
 
             display: flex;
-
             align-items: center;
             justify-content: center;
-
-            padding: 50px;
-
-            box-shadow: var(--sombra);
         }
 
-        .about-image img {
-            width: 75%;
+        .about-visual::before {
+            content: "";
 
-            object-fit: contain;
+            position: absolute;
+
+            width: 330px;
+            height: 330px;
+
+            border: 1px solid rgba(255,255,255,0.3);
+
+            border-radius: 50%;
+        }
+
+        .about-visual img {
+            position: relative;
+            z-index: 2;
+
+            width: 260px;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+        }
+
+        .about-content .section-label {
+            text-align: left;
         }
 
         .about-content h2 {
-            font-size: 46px;
+            font-size: clamp(36px, 4vw, 55px);
 
-            line-height: 1.1;
+            line-height: 1.05;
 
-            margin-bottom: 20px;
-        }
-
-        .about-content h2 span {
-            color: var(--rojo);
+            margin-bottom: 22px;
         }
 
         .about-content > p {
@@ -610,89 +660,32 @@
 
             font-size: 17px;
 
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
-
-        .features {
-            display: grid;
-
-            gap: 15px;
-        }
-
-        .feature {
-            display: flex;
-
-            gap: 14px;
-
-            align-items: flex-start;
-        }
-
-        .feature-icon {
-            width: 35px;
-            height: 35px;
-
-            flex-shrink: 0;
-
-            border-radius: 50%;
-
-            background: var(--rojo);
-
-            color: white;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-weight: bold;
-        }
-
-        .feature h4 {
-            margin-bottom: 3px;
-        }
-
-        .feature p {
-            color: var(--gris);
-
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           VALORES
-           ===================================================== */
 
         .values {
-            background: white;
-        }
-
-        .values-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(2, 1fr);
 
-            gap: 20px;
+            gap: 18px;
         }
 
         .value {
-            text-align: center;
+            padding: 20px;
 
-            padding: 30px 20px;
-        }
+            background: white;
 
-        .value-number {
-            font-size: 42px;
+            border-radius: 16px;
 
-            font-weight: 900;
-
-            color: var(--naranja);
-
-            margin-bottom: 10px;
+            border-left: 4px solid var(--rojo);
         }
 
         .value h3 {
-            margin-bottom: 8px;
+            font-size: 17px;
+
+            margin-bottom: 5px;
         }
 
         .value p {
@@ -703,226 +696,175 @@
 
 
         /* =====================================================
-           NEGOCIOS
-           ===================================================== */
+           DIFERENCIAL
+        ===================================================== */
 
-        .business {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--rojo-profundo),
-                    var(--rojo)
-                );
-
+        .differential {
+            background: var(--rojo);
             color: white;
         }
 
-        .business-grid {
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 60px;
-
-            align-items: center;
+        .differential .section-label {
+            color: var(--naranja-claro);
         }
 
-        .business h2 {
-            font-size: 48px;
+        .differential .section-header p {
+            color: rgba(255,255,255,0.78);
+        }
 
-            line-height: 1.1;
+        .differential-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .differential-card {
+            padding: 35px 28px;
+
+            background: rgba(255,255,255,0.08);
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 20px;
+        }
+
+        .number {
+            font-size: 14px;
+            font-weight: 900;
+
+            color: var(--naranja-claro);
 
             margin-bottom: 20px;
         }
 
-        .business p {
-            color: rgba(255,255,255,0.85);
+        .differential-card h3 {
+            font-size: 23px;
+
+            margin-bottom: 10px;
+        }
+
+        .differential-card p {
+            color: rgba(255,255,255,0.75);
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           CONTACTO
+        ===================================================== */
+
+        .contact {
+            background: white;
+        }
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 65px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #FFF7EA,
+                    #FFE8C7
+                );
+
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .contact-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            right: -150px;
+            bottom: -180px;
+
+            background: var(--naranja);
+
+            opacity: 0.1;
+
+            border-radius: 50%;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-content h2 {
+            font-size: clamp(35px, 4vw, 52px);
+
+            line-height: 1.05;
+
+            margin-bottom: 18px;
+        }
+
+        .contact-content p {
+            color: var(--gris);
 
             font-size: 17px;
 
             margin-bottom: 25px;
         }
 
-        .business-list {
-            display: grid;
-
-            gap: 14px;
-        }
-
-        .business-list div {
-            display: flex;
-
-            gap: 12px;
-
-            align-items: center;
-        }
-
-        .business-list span {
-            width: 27px;
-            height: 27px;
-
-            border-radius: 50%;
-
-            background: var(--naranja-claro);
-
-            color: var(--rojo-profundo);
+        .contact-data {
+            position: relative;
+            z-index: 2;
 
             display: flex;
+            flex-direction: column;
 
-            align-items: center;
-            justify-content: center;
-
-            font-weight: 900;
+            gap: 15px;
         }
 
-        .business-card {
-            padding: 40px;
+        .contact-item {
+            padding: 18px 20px;
 
             background: white;
 
-            color: var(--negro);
+            border-radius: 15px;
 
-            border-radius: 25px;
-
-            box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.06);
         }
 
-        .business-card h3 {
-            font-size: 26px;
-
-            margin-bottom: 15px;
-        }
-
-        .business-card p {
-            color: var(--gris);
-
-            font-size: 15px;
-
-            margin-bottom: 20px;
-        }
-
-
-        /* =====================================================
-           CONTACTO
-           ===================================================== */
-
-        #contacto {
-            background: var(--crema);
-        }
-
-        .contact-grid {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-        .contact-card {
-            background: white;
-
-            border-radius: var(--radio);
-
-            padding: 30px;
-
-            border: 1px solid rgba(242, 13, 27, 0.08);
-
-            text-align: center;
-        }
-
-        .contact-card-icon {
-            width: 55px;
-            height: 55px;
-
-            margin: 0 auto 15px;
-
-            border-radius: 50%;
-
-            background: var(--crema-oscura);
+        .contact-item strong {
+            display: block;
 
             color: var(--rojo);
 
-            display: flex;
+            font-size: 13px;
 
-            align-items: center;
-            justify-content: center;
+            text-transform: uppercase;
 
-            font-size: 24px;
-        }
-
-        .contact-card h3 {
-            margin-bottom: 7px;
-        }
-
-        .contact-card p {
-            color: var(--gris);
-
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           CTA
-           ===================================================== */
-
-        .cta {
-            padding: 70px 0;
-
-            background: var(--crema-oscura);
-        }
-
-        .cta-box {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--naranja),
-                    var(--rojo)
-                );
-
-            border-radius: 30px;
-
-            padding: 60px;
-
-            color: white;
-
-            text-align: center;
-
-            box-shadow: var(--sombra);
-        }
-
-        .cta-box h2 {
-            font-size: 42px;
-
-            line-height: 1.1;
-
-            margin-bottom: 15px;
-        }
-
-        .cta-box p {
-            max-width: 650px;
-
-            margin: 0 auto 25px;
-
-            color: rgba(255,255,255,0.9);
-        }
-
-        .cta-box .btn {
-            background: white;
-
-            color: var(--rojo);
-        }
-
-        .cta-box .btn:hover {
-            transform: translateY(-3px);
+            margin-bottom: 4px;
         }
 
 
         /* =====================================================
            FOOTER
-           ===================================================== */
+        ===================================================== */
 
         footer {
-            background: var(--rojo-profundo);
+            background: var(--negro);
 
             color: white;
 
@@ -932,78 +874,77 @@
         .footer-grid {
             display: grid;
 
-            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-template-columns:
+                1.5fr 1fr 1fr;
 
             gap: 50px;
 
-            padding-bottom: 40px;
-        }
+            padding-bottom: 45px;
 
-        .footer-logo {
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            font-size: 24px;
-
-            font-weight: 900;
-
-            margin-bottom: 15px;
+            border-bottom:
+                1px solid rgba(255,255,255,0.1);
         }
 
         .footer-logo img {
-            width: 52px;
-            height: 52px;
+            width: 180px;
 
-            object-fit: contain;
+            background: white;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            margin-bottom: 18px;
         }
 
-        footer p {
-            color: rgba(255,255,255,0.75);
+        .footer-description {
+            max-width: 360px;
+
+            color: rgba(255,255,255,0.65);
 
             font-size: 14px;
         }
 
-        footer h4 {
-            margin-bottom: 15px;
+        footer h3 {
+            font-size: 15px;
+
+            margin-bottom: 18px;
         }
 
-        .footer-links {
-            display: grid;
-
-            gap: 8px;
+        footer ul {
+            list-style: none;
         }
 
-        .footer-links a {
-            color: rgba(255,255,255,0.75);
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer li a {
+            color: rgba(255,255,255,0.65);
 
             font-size: 14px;
+
+            transition: color 0.2s ease;
         }
 
-        .footer-links a:hover {
+        footer li a:hover {
             color: white;
         }
 
         .copyright {
-            padding-top: 25px;
+            padding-top: 22px;
 
-            border-top:
-                1px solid
-                rgba(255,255,255,0.15);
-
-            text-align: center;
-
-            color: rgba(255,255,255,0.65);
+            color: rgba(255,255,255,0.45);
 
             font-size: 13px;
+
+            text-align: center;
         }
 
 
         /* =====================================================
            WHATSAPP
-           ===================================================== */
+        ===================================================== */
 
         .whatsapp {
             position: fixed;
@@ -1011,8 +952,14 @@
             right: 22px;
             bottom: 22px;
 
+            z-index: 2000;
+
             width: 58px;
             height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             border-radius: 50%;
 
@@ -1020,18 +967,12 @@
 
             color: white;
 
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
             font-size: 27px;
 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.2);
 
-            z-index: 2000;
-
-            transition: 0.25s ease;
+            transition: transform 0.25s ease;
         }
 
         .whatsapp:hover {
@@ -1041,26 +982,37 @@
 
         /* =====================================================
            RESPONSIVE
-           ===================================================== */
+        ===================================================== */
 
         @media (max-width: 900px) {
 
-            .hero-grid,
-            .about-grid,
-            .business-grid {
-                grid-template-columns: 1fr;
+            nav {
+                display: none;
+            }
+
+            .header-inner {
+                min-height: 72px;
             }
 
             .hero {
-                padding: 80px 0;
+                min-height: auto;
+
+                padding: 75px 0;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
             }
 
             .hero-content {
                 text-align: center;
-                margin: auto;
+
+                margin: 0 auto;
             }
 
-            .hero p {
+            .hero-description {
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -1069,98 +1021,92 @@
                 justify-content: center;
             }
 
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .hero-visual {
+                min-height: 350px;
             }
 
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .rice-card {
+                width: 340px;
+                min-height: 340px;
             }
 
-            .contact-grid {
+            .rice-logo {
+                width: 210px;
+            }
+
+            .product-grid,
+            .differential-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+
+                padding: 40px 30px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            .btn-header {
-                display: none;
             }
         }
 
 
         @media (max-width: 600px) {
 
-            .header-inner {
-                min-height: 70px;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .logo img {
-                width: 45px;
-                height: 45px;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-            }
-
-            .hero h1 {
-                font-size: 44px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .logo-card {
-                width: 300px;
-            }
-
             section {
                 padding: 70px 0;
             }
 
-            .products-grid {
+            .logo img {
+                width: 145px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .rice-card {
+                width: 290px;
+                min-height: 290px;
+            }
+
+            .rice-logo {
+                width: 180px;
+            }
+
+            .values {
                 grid-template-columns: 1fr;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content h2,
-            .business h2 {
-                font-size: 36px;
-            }
-
-            .business-card {
-                padding: 28px;
-            }
-
-            .cta-box {
-                padding: 40px 25px;
-            }
-
-            .cta-box h2 {
-                font-size: 32px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 35px 22px;
+            }
+
+            .whatsapp {
+                right: 16px;
+                bottom: 16px;
             }
         }
 
@@ -1173,7 +1119,7 @@
 
     <!-- =====================================================
          HEADER
-         ===================================================== -->
+    ====================================================== -->
 
     <header>
 
@@ -1181,13 +1127,10 @@
 
             <a href="#inicio" class="logo">
 
-                <!-- LOGO OFICIAL BUENARROZ -->
                 <img
-                    src="logo-buenarroz.png"
-                    alt="Logo oficial BuenArroz"
+                    src="ChatGPT Image 14 ago 2026, 10_30_53 a.m..png"
+                    alt="Logo BuenArroz"
                 >
-
-                <span>BuenArroz</span>
 
             </a>
 
@@ -1200,8 +1143,6 @@
 
                 <a href="#nosotros">Nosotros</a>
 
-                <a href="#negocios">Negocios</a>
-
                 <a href="#contacto">Contacto</a>
 
             </nav>
@@ -1209,9 +1150,9 @@
 
             <a
                 href="#contacto"
-                class="btn-header"
+                class="header-button"
             >
-                Contáctanos
+                Comprar arroz
             </a>
 
         </div>
@@ -1222,7 +1163,7 @@
 
     <!-- =====================================================
          HERO
-         ===================================================== -->
+    ====================================================== -->
 
     <main id="inicio">
 
@@ -1234,25 +1175,31 @@
                 <div class="hero-content">
 
                     <div class="eyebrow">
+
+                        <span></span>
+
                         Calidad que se siente
+
                     </div>
 
 
                     <h1>
 
-                        El arroz que
-                        <span>
-                            acompaña tus mejores momentos.
-                        </span>
+                        El sabor de un
+
+                        <strong>BuenArroz</strong>
+
+                        en cada comida.
 
                     </h1>
 
 
-                    <p>
+                    <p class="hero-description">
 
-                        En BuenArroz trabajamos para llevar a tu mesa
-                        arroz de calidad, con sabor, tradición y el
-                        respaldo de una marca pensada para cada comida.
+                        Arroz de calidad, sabor y tradición
+                        para acompañar cada comida.
+                        Un producto pensado para hogares,
+                        negocios y familias colombianas.
 
                     </p>
 
@@ -1271,7 +1218,7 @@
                             href="#contacto"
                             class="btn btn-secondary"
                         >
-                            Comprar / Distribuir
+                            Contáctanos
                         </a>
 
                     </div>
@@ -1282,10 +1229,11 @@
 
                 <div class="hero-visual">
 
-                    <div class="logo-card">
+                    <div class="rice-card">
 
                         <img
-                            src="logo-buenarroz.png"
+                            class="rice-logo"
+                            src="ChatGPT Image 14 ago 2026, 10_30_53 a.m..png"
                             alt="BuenArroz"
                         >
 
@@ -1300,58 +1248,74 @@
 
 
 
-        <!-- =====================================================
+        <!-- =================================================
              PRODUCTOS
-             ===================================================== -->
+        ================================================== -->
 
-        <section id="productos">
+        <section
+            class="products"
+            id="productos"
+        >
 
             <div class="container">
 
 
-                <div class="section-heading">
+                <div class="section-header">
 
-                    <div class="eyebrow">
+                    <div class="section-label">
                         Nuestros productos
                     </div>
 
                     <h2>
-                        Calidad para cada ocasión
+                        Arroz para cada momento
                     </h2>
 
                     <p>
                         Productos pensados para ofrecer
-                        sabor, rendimiento y confianza.
+                        calidad, rendimiento y sabor.
                     </p>
 
                 </div>
 
 
-
-                <div class="products-grid">
+                <div class="product-grid">
 
 
                     <article class="product-card">
 
-                        <div class="product-icon">
-                            🍚
+                        <div class="product-image">
+
+                            <div>
+
+                                <img
+                                    src="ChatGPT Image 14 ago 2026, 10_30_53 a.m..png"
+                                    alt="BuenArroz"
+                                >
+
+                            </div>
+
                         </div>
 
-                        <h3>
-                            Arroz BuenArroz
-                        </h3>
 
-                        <p>
-                            Nuestro arroz insignia, pensado para
-                            acompañar las comidas de todos los días.
-                        </p>
+                        <div class="product-content">
 
-                        <a
-                            href="#contacto"
-                            class="product-link"
-                        >
-                            Solicitar información →
-                        </a>
+                            <h3>
+                                BuenArroz
+                            </h3>
+
+                            <p>
+                                La opción ideal para acompañar
+                                las comidas de todos los días.
+                            </p>
+
+                            <a
+                                href="#contacto"
+                                class="product-link"
+                            >
+                                Conocer producto →
+                            </a>
+
+                        </div>
 
                     </article>
 
@@ -1359,25 +1323,39 @@
 
                     <article class="product-card">
 
-                        <div class="product-icon">
-                            🌾
+                        <div class="product-image">
+
+                            <div>
+
+                                <img
+                                    src="ChatGPT Image 14 ago 2026, 10_30_53 a.m..png"
+                                    alt="BuenArroz"
+                                >
+
+                            </div>
+
                         </div>
 
-                        <h3>
-                            Arroz de Sopa
-                        </h3>
 
-                        <p>
-                            Una alternativa práctica y deliciosa
-                            para preparar sopas y recetas tradicionales.
-                        </p>
+                        <div class="product-content">
 
-                        <a
-                            href="#contacto"
-                            class="product-link"
-                        >
-                            Solicitar información →
-                        </a>
+                            <h3>
+                                Arroz de sopa
+                            </h3>
+
+                            <p>
+                                Una alternativa práctica y
+                                deliciosa para tus preparaciones.
+                            </p>
+
+                            <a
+                                href="#contacto"
+                                class="product-link"
+                            >
+                                Conocer producto →
+                            </a>
+
+                        </div>
 
                     </article>
 
@@ -1385,25 +1363,39 @@
 
                     <article class="product-card">
 
-                        <div class="product-icon">
-                            ✨
+                        <div class="product-image">
+
+                            <div>
+
+                                <img
+                                    src="ChatGPT Image 14 ago 2026, 10_30_53 a.m..png"
+                                    alt="BuenArroz"
+                                >
+
+                            </div>
+
                         </div>
 
-                        <h3>
-                            Línea Especial
-                        </h3>
 
-                        <p>
-                            Presentaciones y productos diseñados
-                            para diferentes necesidades de consumo.
-                        </p>
+                        <div class="product-content">
 
-                        <a
-                            href="#contacto"
-                            class="product-link"
-                        >
-                            Solicitar información →
-                        </a>
+                            <h3>
+                                Presentaciones
+                            </h3>
+
+                            <p>
+                                Diferentes presentaciones para
+                                hogares, tiendas y negocios.
+                            </p>
+
+                            <a
+                                href="#contacto"
+                                class="product-link"
+                            >
+                                Solicitar información →
+                            </a>
+
+                        </div>
 
                     </article>
 
@@ -1416,23 +1408,23 @@
 
 
 
-        <!-- =====================================================
+        <!-- =================================================
              NOSOTROS
-             ===================================================== -->
+        ================================================== -->
 
         <section
-            id="nosotros"
             class="about"
+            id="nosotros"
         >
 
             <div class="container about-grid">
 
 
-                <div class="about-image">
+                <div class="about-visual">
 
                     <img
-                        src="logo-buenarroz.png"
-                        alt="BuenArroz"
+                        src="ChatGPT Image 14 ago 2026, 10_30_53 a.m..png"
+                        alt="Logo BuenArroz"
                     >
 
                 </div>
@@ -1441,101 +1433,83 @@
 
                 <div class="about-content">
 
-                    <div class="eyebrow">
+                    <div class="section-label">
                         Sobre BuenArroz
                     </div>
 
 
                     <h2>
-
                         Más que arroz,
-                        <span>
-                            tradición.
-                        </span>
-
+                        hacemos parte de tu mesa.
                     </h2>
 
 
                     <p>
 
-                        BuenArroz nace con el propósito de ofrecer
-                        productos de calidad que hagan parte de la
-                        vida cotidiana de las familias y negocios.
-
-                        Creemos en el trabajo bien hecho,
-                        en la cercanía con nuestros clientes y
-                        en construir una marca en la que se pueda confiar.
+                        En BuenArroz creemos que una buena comida
+                        comienza con buenos ingredientes.
+                        Trabajamos para ofrecer productos de calidad,
+                        con buen rendimiento y el sabor que las
+                        familias esperan.
 
                     </p>
 
 
-                    <div class="features">
+                    <div class="values">
 
 
-                        <div class="feature">
+                        <div class="value">
 
-                            <div class="feature-icon">
-                                ✓
-                            </div>
+                            <h3>
+                                Calidad
+                            </h3>
 
-                            <div>
-
-                                <h4>
-                                    Calidad
-                                </h4>
-
-                                <p>
-                                    Seleccionamos nuestros productos
-                                    pensando siempre en nuestros clientes.
-                                </p>
-
-                            </div>
+                            <p>
+                                Productos seleccionados para
+                                entregar confianza en cada preparación.
+                            </p>
 
                         </div>
 
 
+                        <div class="value">
 
-                        <div class="feature">
+                            <h3>
+                                Sabor
+                            </h3>
 
-                            <div class="feature-icon">
-                                ✓
-                            </div>
-
-                            <div>
-
-                                <h4>
-                                    Sabor
-                                </h4>
-
-                                <p>
-                                    Productos pensados para acompañar
-                                    las recetas que hacen parte de nuestra tradición.
-                                </p>
-
-                            </div>
+                            <p>
+                                El sabor tradicional que acompaña
+                                nuestras comidas.
+                            </p>
 
                         </div>
 
 
+                        <div class="value">
 
-                        <div class="feature">
+                            <h3>
+                                Tradición
+                            </h3>
 
-                            <div class="feature-icon">
-                                ✓
-                            </div>
+                            <p>
+                                Un producto pensado para
+                                compartir en familia.
+                            </p>
 
-                            <div>
+                        </div>
 
-                                <h4>
-                                    Confianza
-                                </h4>
 
-                                <p>
-                                    Construimos relaciones duraderas
-                                    con clientes, aliados y distribuidores.
-                                </p>
+                        <div class="value">
 
-                            </div>
+                            <h3>
+                                Confianza
+                            </h3>
+
+                            <p>
+                                Construimos relaciones duraderas
+                                con nuestros clientes.
+                            </p>
 
                         </div>
 
@@ -1551,35 +1525,39 @@
 
 
 
-        <!-- =====================================================
-             VALORES
-             ===================================================== -->
+        <!-- =================================================
+             DIFERENCIAL
+        ================================================== -->
 
-        <section class="values">
+        <section class="differential">
 
             <div class="container">
 
 
-                <div class="section-heading">
+                <div class="section-header">
 
-                    <div class="eyebrow">
-                        Lo que nos representa
+                    <div class="section-label">
+                        ¿Por qué BuenArroz?
                     </div>
 
                     <h2>
-                        Una marca hecha para crecer
+                        Lo bueno empieza por elegir bien.
                     </h2>
+
+                    <p>
+                        Una propuesta construida alrededor
+                        de calidad, confianza y sabor.
+                    </p>
 
                 </div>
 
 
+                <div class="differential-grid">
 
-                <div class="values-grid">
 
+                    <div class="differential-card">
 
-                    <div class="value">
-
-                        <div class="value-number">
+                        <div class="number">
                             01
                         </div>
 
@@ -1588,65 +1566,44 @@
                         </h3>
 
                         <p>
-                            Productos que cumplen
-                            con nuestros estándares.
+                            Cuidamos nuestro producto para que
+                            llegue a tu mesa en las mejores condiciones.
                         </p>
 
                     </div>
 
 
+                    <div class="differential-card">
 
-                    <div class="value">
-
-                        <div class="value-number">
+                        <div class="number">
                             02
                         </div>
 
                         <h3>
-                            Cercanía
+                            Rendimiento
                         </h3>
 
                         <p>
-                            Escuchamos y entendemos
-                            las necesidades de nuestros clientes.
+                            Una alternativa pensada para ofrecer
+                            buen rendimiento en cada preparación.
                         </p>
 
                     </div>
 
 
+                    <div class="differential-card">
 
-                    <div class="value">
-
-                        <div class="value-number">
+                        <div class="number">
                             03
                         </div>
 
                         <h3>
-                            Tradición
+                            Confianza
                         </h3>
 
                         <p>
-                            Llevamos el sabor de siempre
-                            a nuevas generaciones.
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="value">
-
-                        <div class="value-number">
-                            04
-                        </div>
-
-                        <h3>
-                            Crecimiento
-                        </h3>
-
-                        <p>
-                            Construimos relaciones
-                            para crecer juntos.
+                            Queremos construir relaciones de largo
+                            plazo con nuestros clientes y aliados.
                         </p>
 
                     </div>
@@ -1660,249 +1617,98 @@
 
 
 
-        <!-- =====================================================
-             NEGOCIOS
-             ===================================================== -->
+        <!-- =================================================
+             CONTACTO
+        ================================================== -->
 
         <section
-            id="negocios"
-            class="business"
+            class="contact"
+            id="contacto"
         >
 
-            <div class="container business-grid">
-
-
-                <div>
-
-                    <div class="eyebrow">
-                        Para negocios
-                    </div>
-
-
-                    <h2>
-                        Hagamos crecer
-                        tu negocio juntos.
-                    </h2>
-
-
-                    <p>
-
-                        Si eres supermercado, tienda,
-                        restaurante, distribuidor o negocio
-                        de alimentos, queremos ser tu aliado.
-
-                    </p>
-
-
-                    <div class="business-list">
-
-
-                        <div>
-
-                            <span>✓</span>
-
-                            <p>
-                                Atención comercial
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>✓</span>
-
-                            <p>
-                                Portafolio de productos
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>✓</span>
-
-                            <p>
-                                Opciones para distribuidores
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>✓</span>
-
-                            <p>
-                                Atención personalizada
-                            </p>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="business-card">
-
-                    <h3>
-                        ¿Quieres vender BuenArroz?
-                    </h3>
-
-
-                    <p>
-
-                        Déjanos tus datos y nuestro equipo
-                        comercial se pondrá en contacto contigo.
-
-                    </p>
-
-
-                    <a
-                        href="#contacto"
-                        class="btn btn-primary"
-                    >
-                        Quiero ser distribuidor
-                    </a>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             CONTACTO
-             ===================================================== -->
-
-        <section id="contacto">
-
             <div class="container">
 
 
-                <div class="section-heading">
-
-                    <div class="eyebrow">
-                        Hablemos
-                    </div>
-
-                    <h2>
-                        Estamos para ayudarte
-                    </h2>
-
-                    <p>
-                        Escríbenos para conocer nuestros productos,
-                        hacer un pedido o hablar sobre distribución.
-                    </p>
-
-                </div>
+                <div class="contact-box">
 
 
+                    <div class="contact-content">
 
-                <div class="contact-grid">
-
-
-                    <div class="contact-card">
-
-                        <div class="contact-card-icon">
-                            📱
+                        <div class="section-label">
+                            Hablemos
                         </div>
 
-                        <h3>
-                            WhatsApp
-                        </h3>
+
+                        <h2>
+                            Lleva un BuenArroz
+                            a tu mesa.
+                        </h2>
+
 
                         <p>
-                            Atención rápida y personalizada.
+                            ¿Quieres conocer nuestros productos,
+                            presentaciones o hacer un pedido?
+                            Escríbenos.
                         </p>
+
+
+                        <a
+                            href="https://wa.me/573103897846"
+                            target="_blank"
+                            class="btn btn-primary"
+                        >
+                            Escribir por WhatsApp
+                        </a>
 
                     </div>
 
 
 
-                    <div class="contact-card">
+                    <div class="contact-data">
 
-                        <div class="contact-card-icon">
-                            ✉️
+
+                        <div class="contact-item">
+
+                            <strong>
+                                WhatsApp
+                            </strong>
+
+                            +57 310 389 7846
+
                         </div>
 
-                        <h3>
-                            Correo
-                        </h3>
 
-                        <p>
-                            Escríbenos para solicitudes comerciales.
-                        </p>
+                        <div class="contact-item">
 
-                    </div>
+                            <strong>
+                                Atención
+                            </strong>
 
+                            Solicita información sobre
+                            nuestros productos y pedidos.
 
-
-                    <div class="contact-card">
-
-                        <div class="contact-card-icon">
-                            🤝
                         </div>
 
-                        <h3>
-                            Negocios
-                        </h3>
 
-                        <p>
-                            Trabajemos juntos para hacer crecer
-                            tu negocio.
-                        </p>
+                        <div class="contact-item">
+
+                            <strong>
+                                BuenArroz
+                            </strong>
+
+                            Calidad, sabor y tradición.
+
+                        </div>
+
 
                     </div>
 
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             CTA
-             ===================================================== -->
-
-        <section class="cta">
-
-            <div class="container">
-
-                <div class="cta-box">
-
-                    <h2>
-                        BuenArroz en tu mesa.
-                    </h2>
-
-                    <p>
-                        Calidad, sabor y tradición para acompañar
-                        cada comida.
-                    </p>
-
-                    <a
-                        href="#contacto"
-                        class="btn"
-                    >
-                        Contáctanos
-                    </a>
 
                 </div>
 
             </div>
 
         </section>
-
 
     </main>
 
@@ -1910,98 +1716,112 @@
 
     <!-- =====================================================
          FOOTER
-         ===================================================== -->
+    ====================================================== -->
 
     <footer>
 
-        <div class="container footer-grid">
+        <div class="container">
 
 
-            <div>
+            <div class="footer-grid">
 
-                <div class="footer-logo">
 
-                    <img
-                        src="logo-buenarroz.png"
-                        alt="BuenArroz"
+                <div>
+
+                    <a
+                        href="#inicio"
+                        class="footer-logo"
                     >
 
-                    <span>
-                        BuenArroz
-                    </span>
+                        <img
+                            src="ChatGPT Image 14 ago 2026, 10_30_53 a.m..png"
+                            alt="BuenArroz"
+                        >
+
+                    </a>
+
+
+                    <p class="footer-description">
+
+                        Arroz de calidad, sabor y tradición
+                        para acompañar cada comida.
+
+                    </p>
 
                 </div>
 
 
-                <p>
-                    Arroz de calidad, sabor y tradición
-                    para acompañar cada comida.
-                </p>
 
-            </div>
+                <div>
 
+                    <h3>
+                        Navegación
+                    </h3>
 
+                    <ul>
 
-            <div>
+                        <li>
+                            <a href="#inicio">
+                                Inicio
+                            </a>
+                        </li>
 
-                <h4>
-                    Navegación
-                </h4>
+                        <li>
+                            <a href="#productos">
+                                Productos
+                            </a>
+                        </li>
 
-                <div class="footer-links">
+                        <li>
+                            <a href="#nosotros">
+                                Nosotros
+                            </a>
+                        </li>
 
-                    <a href="#inicio">
-                        Inicio
-                    </a>
+                        <li>
+                            <a href="#contacto">
+                                Contacto
+                            </a>
+                        </li>
 
-                    <a href="#productos">
-                        Productos
-                    </a>
-
-                    <a href="#nosotros">
-                        Nosotros
-                    </a>
-
-                    <a href="#negocios">
-                        Negocios
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <div>
-
-                <h4>
-                    Contacto
-                </h4>
-
-                <div class="footer-links">
-
-                    <a href="#contacto">
-                        WhatsApp
-                    </a>
-
-                    <a href="#contacto">
-                        Correo
-                    </a>
-
-                    <a href="#contacto">
-                        Atención comercial
-                    </a>
+                    </ul>
 
                 </div>
 
+
+
+                <div>
+
+                    <h3>
+                        Contacto
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <a
+                                href="https://wa.me/573103897846"
+                                target="_blank"
+                            >
+                                WhatsApp
+                            </a>
+                        </li>
+
+                        <li>
+                            BuenArroz
+                        </li>
+
+                        <li>
+                            Colombia
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
             </div>
 
-
-        </div>
-
-
-
-        <div class="container">
 
             <div class="copyright">
 
@@ -2009,6 +1829,7 @@
                 Todos los derechos reservados.
 
             </div>
+
 
         </div>
 
@@ -2018,17 +1839,12 @@
 
     <!-- =====================================================
          WHATSAPP
-         
-         IMPORTANTE:
-         Cambia 573103897846 por el número comercial
-         que quieras utilizar.
-         ===================================================== -->
+    ====================================================== -->
 
     <a
         class="whatsapp"
         href="https://wa.me/573103897846"
         target="_blank"
-        rel="noopener"
         aria-label="Contactar por WhatsApp"
     >
         ☎
