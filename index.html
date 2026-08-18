@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuenArroz | Calidad, sabor y tradición</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #24352a;
+            background: #f8f7f1;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #315b35;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #24352a;
+            font-weight: 600;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #f5f0d8, #e8f0df);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.05;
+            margin-bottom: 25px;
+            color: #294d2e;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 30px;
+            color: #536157;
+        }
+
+        .button {
+            display: inline-block;
+            background: #315b35;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #294d2e;
+        }
+
+        .section-title p {
+            color: #68736b;
+            margin-top: 10px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .card .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #315b35;
+            margin-bottom: 10px;
+        }
+
+        .business {
+            background: #315b35;
+            color: white;
+            text-align: center;
+        }
+
+        .business h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .business p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .business .button {
+            background: white;
+            color: #315b35;
+        }
+
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        footer {
+            background: #24352a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">BuenArroz 🍚</div>
+
+    <nav>
+        <a href="#productos">Productos</a>
+        <a href="#negocios">Para negocios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Arroz de calidad para cada momento.</h1>
+
+        <p>
+            BuenArroz combina calidad, sabor y tradición para acompañar
+            las comidas de las familias colombianas.
+        </p>
+
+        <a class="button" href="#contacto">
+            Contáctanos
+        </a>
+    </div>
+</section>
+
+<section id="productos">
+
+    <div class="section-title">
+        <h2>Nuestros productos</h2>
+        <p>Calidad y confianza en cada presentación.</p>
+    </div>
+
+    <div class="products">
+
+        <div class="card">
+            <div class="icon">🍚</div>
+            <h3>Arroz BuenArroz</h3>
+            <p>La calidad y el sabor que acompañan todos los días.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌾</div>
+            <h3>Arroz de sopa</h3>
+            <p>Una opción ideal para preparar deliciosas recetas.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📦</div>
+            <h3>Presentaciones para negocio</h3>
+            <p>Opciones pensadas para tiendas, supermercados y distribuidores.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="negocios" class="business">
+
+    <h2>¿Tienes un negocio?</h2>
+
+    <p>
+        Somos aliados de tiendas, supermercados y distribuidores.
+        Conoce nuestras opciones y haz tu pedido directamente con BuenArroz.
+    </p>
+
+    <a class="button" href="https://wa.me/573103897846" target="_blank">
+        Hablar por WhatsApp
+    </a>
+
+</section>
+
+<section id="nosotros">
+
+    <div class="about">
+
+        <div class="section-title">
+            <h2>Sobre BuenArroz</h2>
+        </div>
+
+        <p>
+            En BuenArroz trabajamos para ofrecer productos de calidad,
+            con el sabor y la confianza que nuestros clientes necesitan.
+            Nuestro propósito es crecer junto a las familias y negocios
+            que nos eligen cada día.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="contacto">
+
+    <div class="section-title">
+
+        <h2>Hablemos</h2>
+
+        <p>
+            ¿Quieres conocer nuestros productos o hacer un pedido?
+        </p>
+
+        <br>
+
+        <a class="button" href="https://wa.me/573103897846" target="_blank">
+            WhatsApp BuenArroz
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 BuenArroz · Calidad, sabor y tradición.
+</footer>
+
+</body>
+</html>
